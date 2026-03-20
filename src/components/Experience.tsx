@@ -17,13 +17,24 @@ interface Job {
 
 const jobs: Job[] = [
   {
+    title: "Senior Software Engineer",
+    company: "Webflow",
+    companyUrl: "https://webflow.com",
+    period: "Feb 2026 — Present",
+    location: "San Francisco, USA — Remote",
+    description:
+      "Contributing to the Webflow Cloud project.",
+    bullets: [],
+    tech: [],
+  },
+  {
     title: "Full Stack Software Engineer",
     company: "Forgd",
     companyUrl: "https://forgd.com",
-    period: "May 2025 — Present",
+    period: "May 2025 — Feb 2026",
     location: "New York, USA — Remote",
     description:
-      "Working on a crypto BI platform focused on large-scale data ingestion, analytics, and reliability.",
+      "Worked on a crypto BI platform focused on large-scale data ingestion, analytics, and reliability.",
     bullets: [
       "Database architecture design and optimizations for time-based relational DBs.",
       "Identified and fixed a critical ETL and indexing failure that corrupted large volumes of historical data; wrote migrations to repair terabytes of corrupted data in TimescaleDB and rebuilt feeding pipelines.",

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 
 const contacts = [
   {
@@ -43,65 +44,84 @@ const contacts = [
 
 export default function Header() {
   return (
-    <header className="relative pb-10 mb-12 border-b border-border">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-          <div>
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-2">
-              FRANCISCO{" "}
-              <span className="text-accent">BARALLE</span>
-            </h1>
-            <p className="text-lg text-accent-dim font-mono">
-              Software Engineer &mdash; Full Stack &mdash; Blockchain
-            </p>
-            <p className="text-sm text-muted mt-2">
-              Santa Fe, Argentina &middot; Argentinian &amp; Italian nationality
-            </p>
+    <>
+      <header className="relative pb-10 mb-12 border-b border-border">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-6">
+            <div>
+              <h1
+                className="text-5xl sm:text-6xl font-bold tracking-tight text-white mb-2"
+                style={{ fontFamily: "var(--font-plus-jakarta)" }}
+              >
+                FRANCISCO BARALLE
+              </h1>
+              <p className="text-lg text-accent-dim font-mono">
+                Software Engineer &mdash; Full Stack &mdash; Blockchain
+              </p>
+              <p className="text-sm text-muted mt-2">
+                Santa Fe, Argentina &middot; Argentinian &amp; Italian nationality
+              </p>
+            </div>
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shrink-0">
+              <Image
+                src="/profile.jpeg"
+                alt="Francisco Baralle"
+                fill
+                className="object-cover"
+                style={{ transform: "scale(1.4)" }}
+                priority
+              />
+            </div>
           </div>
-          <motion.a
-            href="/francisco-baralle-cv.pdf"
-            download
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent/10 border border-accent/30 text-accent rounded-lg font-medium text-sm hover:bg-accent/20 transition-colors shrink-0 self-start"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-            </svg>
-            Download PDF
-          </motion.a>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      <motion.div
-        className="flex flex-wrap gap-4 mt-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+        <motion.div
+          className="flex flex-wrap gap-4 mt-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          {contacts.map((c) => (
+            <a
+              key={c.label}
+              href={c.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors"
+            >
+              {c.icon}
+              {c.label}
+            </a>
+          ))}
+          <span className="flex items-center gap-2 text-sm text-muted">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
+            </svg>
+            Spanish (Native) &middot; English (C1)
+          </span>
+        </motion.div>
+      </header>
+
+      {/* Floating Download PDF button */}
+      <motion.a
+        href="/francisco-baralle-cv.pdf"
+        download
+        className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 px-5 py-3 bg-accent text-white rounded-lg font-semibold text-sm shadow-lg shadow-accent/25 hover:bg-accent-dim transition-colors"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        {contacts.map((c) => (
-          <a
-            key={c.label}
-            href={c.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors"
-          >
-            {c.icon}
-            {c.label}
-          </a>
-        ))}
-        <span className="flex items-center gap-2 text-sm text-muted">
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
-          </svg>
-          Spanish (Native) &middot; English (C1)
-        </span>
-      </motion.div>
-    </header>
+        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+        </svg>
+        Download PDF
+      </motion.a>
+    </>
   );
 }

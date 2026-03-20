@@ -6,7 +6,7 @@ import Education from "@/components/Education";
 
 export default function Home() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12 sm:py-16">
+    <main className="max-w-4xl mx-auto px-6 py-12 sm:py-16 pb-24">
       <Header />
       <div className="space-y-16">
         <Summary />
@@ -15,7 +15,7 @@ export default function Home() {
         <Education />
       </div>
       <footer className="mt-20 pt-8 border-t border-border text-center text-xs text-muted">
-        <p>&copy; {new Date().getFullYear()} Francisco Baralle. Built with Next.js.</p>
+        <p>&copy; {new Date().getFullYear()} Francisco Baralle</p>
       </footer>
     </main>
   );
