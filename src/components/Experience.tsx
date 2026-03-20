@@ -25,7 +25,11 @@ const jobs: Job[] = [
     description:
       "Contributing to the Webflow Cloud project.",
     bullets: [],
-    tech: [],
+    tech: [
+      "Next.js", "React.js", "TypeScript", "Node.js", "Docker", "Kubernetes",
+      "PostgreSQL", "MongoDB", "AWS", "Cloudflare", "Pulumi",
+      "Claude Code", "ChatGPT", "Cursor", "Glean",
+    ],
   },
   {
     title: "Full Stack Software Engineer",

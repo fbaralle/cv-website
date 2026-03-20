@@ -7,7 +7,7 @@ export default function Summary() {
   return (
     <AnimatedSection>
       <SectionTitle number="01" title="Professional Summary" />
-      <div className="text-sm leading-relaxed text-foreground/80 space-y-4 max-w-3xl">
+      <div className="leading-relaxed text-foreground/80 space-y-4">
         <p>
           I&apos;m a{" "}
           <span className="text-accent font-medium">
